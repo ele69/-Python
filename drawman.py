@@ -1,5 +1,5 @@
 from turtle import Turtle
-
+default_scale=10
 def init_drawman():
     global t, x_current, y_current, drawman_scale
     t=Turtle()
@@ -7,7 +7,11 @@ def init_drawman():
     x_current=0
     y_current=0
     t.goto(x_current, y_current)
-    drawman_scale=10
+    drawman_scale(default_scale)
+
+def drawman_scale(scale):
+    global _drawman_scale
+    _drawman_scale=scale
 def test_drawman():
     """kjgjhg"""
     pen_down()
@@ -29,7 +33,7 @@ def to_point(x,y):
     global x_current, y_current
     x_current=x
     y_current=y
-    t.goto(x_current*drawman_scale, y_current*drawman_scale)
+    t.goto(x_current*_drawman_scale, y_current*_drawman_scale)
 
 init_drawman()
 if __name__=='__main__':
